@@ -1,3 +1,9 @@
+PATH
+  remote: vendor/gems/treetop-dcf
+  specs:
+    treetop-dcf (0.2.1)
+      treetop (>= 1.2.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,6 +119,7 @@ GEM
     nokogiri (1.12.4-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
+    polyglot (0.3.5)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -201,6 +208,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     tilt (2.0.10)
+    treetop (1.6.11)
+      polyglot (~> 0.3)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -242,6 +251,7 @@ DEPENDENCIES
   shoulda-matchers (~> 4.0)
   sidekiq
   spring
+  treetop-dcf!
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
