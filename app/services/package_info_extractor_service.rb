@@ -28,12 +28,10 @@ class PackageInfoExtractorService < ApplicationService
 
   def fetch_package
     file_name = "#{package['Package']}_#{package['Version']}.tar.gz"
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Fetching #{file_name} *****"
 
     response = self.class.get("/#{file_name}")
     raise PackageInfoExtractorError, response unless response.success?
 
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Done fetching package *****"
     response.body
   end
 
@@ -46,15 +44,10 @@ class PackageInfoExtractorService < ApplicationService
   end
 
   def extract_description_info(files)
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Started extracting description info *****"
-    description_info = false
-
     files.each do |file|
       next unless file.full_name.end_with?('DESCRIPTION')
 
-      break description_info = Dcf.parse(file.read.force_encoding('UTF-8'))&.first
+      break Dcf.parse(file.read.force_encoding('UTF-8'))&.first
     end
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Done extracting description info *****"
-    description_info
   end
 end

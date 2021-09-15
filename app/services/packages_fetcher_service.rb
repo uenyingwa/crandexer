@@ -10,7 +10,7 @@ class PackagesFetcherService < ApplicationService
   base_uri BASE_URI
 
   def call
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Fetching packages *****"
+    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Fetching packages from cran *****"
     response = self.class.get('/PACKAGES')
     raise PackagesFetcherError, response unless response.success?
 
@@ -20,7 +20,6 @@ class PackagesFetcherService < ApplicationService
     pkgs.each do |pkg|
       packages << Dcf.parse(pkg)&.first
     end
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Fetching complete *****"
     packages
   rescue StandardError => e
     Rails.logger.error "##### [#{self.class.name}][#{__method__}][Error] #{e} #####"

@@ -10,7 +10,6 @@ class DescriptionParserService < ApplicationService
   end
 
   def call
-    Rails.logger.info "***** [#{self.class.name}][#{__method__}] Parsing description info *****"
     {
       author: extract_author,
       description: extract_description,
