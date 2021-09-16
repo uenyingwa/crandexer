@@ -19,6 +19,7 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Background processing
 gem 'sidekiq'
+gem "sidekiq-cron", "~> 1.1"
 # Parser for control files
 gem 'treetop-dcf', path: 'vendor/gems/treetop-dcf'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
