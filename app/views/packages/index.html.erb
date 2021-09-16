@@ -1,0 +1,14 @@
+<h4 class="h3 heading">Cran Packages</h4>
+<div class="packages list-group">
+  <% @packages.each do |package| %>
+    <div class="package list-group-item">
+      <h4 class="h3"><%= package.name %></h4>
+      <p>Version: <%= package.version %></p>
+      <p>Published_at: <%= package.published_at %></p>
+      <p>Maintainer: <%= maintainers(package.maintainer) %></p>
+      <p>Title: <%= package.title %></p>
+      <p>Authors: <%= authors(package.author) %></p>
+      <p>Description: <%= package.description %></p>
+    </div>
+  <% end %>
+</div>
